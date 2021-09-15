@@ -7,7 +7,7 @@ const Routes = () => {
   return (
     <Router>
       <div id = "app">
-        Hello
+        Hello!!
         {/* <Route exact path = "/" component = {() => {return <h1>Home page</h1> }} />
         <Route exact path = "/posts" component = {AllPosts} /> */}
       </div>
