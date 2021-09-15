@@ -10,11 +10,11 @@ export class AllPosts extends Component {
     let render = "Loading"
     if(this.props.posts.length > 0) {
       console.log(this.props.posts)
-      return (<div className = "users-list">
+      return (<div className = "posts-list">
         {this.props.posts.map( (post) => {
           return (
             <div key = {post.id} >
-            {post.user.username}
+            {post.user.usearname}
             {post.description}
             </div>
           )

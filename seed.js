@@ -1,13 +1,17 @@
 const { User, Post, db } = require("./server/db/database")
 
 const users = [{
-  username: "nicole"
+  username: "nicole",
+  password: "npw"
 }, {
-  username: "devin"
+  username: "devin",
+  password: "dpw"
 }, {
-  username: "andrea"
+  username: "andrea",
+  password: "apw"
 }, {
-  username: "ricky"
+  username: "ricky",
+  password: "rpw"
 }]
 
 const posts = [ {

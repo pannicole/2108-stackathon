@@ -17,6 +17,13 @@ const User = db.define('user', {
     validate: {
       notEmpty: true
     }
+  },
+  password: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   }
 })
 

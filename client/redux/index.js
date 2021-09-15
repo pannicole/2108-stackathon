@@ -22,7 +22,7 @@ const setUsers = (users) => {
 export function getUsers () {
   return async (dispatch) => {
     try {
-      const { data } = Axios.get("/api/users")
+      const { data } = await Axios.get("/api/users")
       dispatch(setUsers(data))
     }
     catch(err) {
