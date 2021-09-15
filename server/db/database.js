@@ -4,4 +4,23 @@ const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/
   logging: false
 });
 
-module.exports = db;
+const Post = db.define('post', {
+  description: {
+    type: Sequelize.TEXT
+  }
+})
+
+const User = db.define('user', {
+  username: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  }
+})
+
+Post.belongsTo(User)
+User.hasMany(Post)
+
+module.exports = {User, Post, db};
