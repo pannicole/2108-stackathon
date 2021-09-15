@@ -4,7 +4,11 @@ const { User, Post, db } = require('./db/database')
 // matches GET requests to /api/posts/
 router.get('/', async function (req, res, next) {
   try{
-    const allPosts = await Post.findAll()
+    const allPosts = await Post.findAll({
+      include: {
+        model: User
+      }
+    })
     res.send(allPosts)
   } catch(err) {
     next(err)

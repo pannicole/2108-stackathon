@@ -7,20 +7,24 @@ export class AllPosts extends Component {
     this.props.getPosts()
   }
   render() {
-    return <div>allposts div render</div>
-  //   if(this.props.posts.length > 0) {
-  //     const render = this.props.posts.map( (post) => {
-  //       <div>
-  //         {post.description}
-  //       </div>
-  //     })
-  //   } else {
-  //     const render = "loading"
-  //   }
-  //   return (
-  //     <div>{render}</div>
-  //   )
-  // }
+    let render = "Loading"
+    if(this.props.posts.length > 0) {
+      console.log(this.props.posts)
+      return (<div className = "users-list">
+        {this.props.posts.map( (post) => {
+          return (
+            <div key = {post.id} >
+            {post.user.username}
+            {post.description}
+            </div>
+          )
+        })}
+      </div>
+      )
+    }
+    return (
+      <div>{render}</div>
+    )
   }
 }
 

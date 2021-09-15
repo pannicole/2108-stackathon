@@ -26,6 +26,11 @@ const seed = async() => {
   const [nicole, devin, andrea, ricky] = await Promise.all( users.map( (user) => User.create(user)))
 
   const [post , post2, post3, post4] = await Promise.all( posts.map( (post) => Post.create(post)))
+
+  await nicole.addPost(post)
+  await devin.addPost(post2)
+  await andrea.addPost(post3)
+  await ricky.addPost(post4)
 }
 
 seed().then( ()=> {
