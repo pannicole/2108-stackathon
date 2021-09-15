@@ -38,7 +38,7 @@ const setPosts = (posts) => {
   }
 }
 
-export function getPosts () {
+export const getPosts = () => {
   return async (dispatch) => {
     try {
       const { data } = await Axios.get("/api/posts")
