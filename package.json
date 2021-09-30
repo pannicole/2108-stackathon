@@ -41,11 +41,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pannicole/boilerplate.git"
+    "url": "git+https://github.com/pannicole/2108-stackathon.git"
   },
   "bugs": {
-    "url": "https://github.com/pannicole/boilerplate/issues"
+    "url": "https://github.com/pannicole/2108-stackathon/issues"
   },
-  "homepage": "https://github.com/pannicole/boilerplate#readme",
+  "homepage": "https://github.com/pannicole/2108-stackathon#readme",
   "description": ""
 }
