@@ -10,7 +10,7 @@ const Routes = () => {
   return (
     <Router>
       <div id = "app">
-        <Login />
+        {/* <Login /> */}
         <Route exact path = "/" component = {Matter} />
         <Route exact path = "/posts" component = {AllPosts} />
         <Route exact path = "/users" component = {AllUsers} />

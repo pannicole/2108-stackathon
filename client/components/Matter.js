@@ -25,27 +25,6 @@ const Matter = (props) => {
       },
     });
 
-    const rectangle = Bodies.rectangle(400, -450, 120, 80, {
-      friction: 1,
-      restitution: 0.25,
-    });
-    const circle = Bodies.circle(400, -300, 50, {
-      friction: 0,
-      restitution: 1,
-    });
-    const triangle = Bodies.polygon(400, -150, 3, 50, {
-      friction: 0,
-      restitution: 0.5,
-    });
-
-    const verticalPart = Bodies.rectangle(400, 0, 100, 50);
-    const horizontalPart = Bodies.rectangle(400, 0, 50, 100);
-    const cross = Body.create({
-      parts: [verticalPart, horizontalPart],
-      friction: 0,
-      restitution: 1,
-    });
-
     const floor = Bodies.rectangle(400, 575, 800, 50, {
       isStatic: true,
       friction: 0,
@@ -59,20 +38,9 @@ const Matter = (props) => {
       friction: 0,
     });
 
-    const obstacle3 = Bodies.circle(650, 200, 85, {
-      isStatic: true,
-      friction: 0,
-      restitution: 1,
-    });
-
-    // Bodies won't do anything unless they are added to the world
+    //Bodies won't do anything unless they are added to the world
     World.add(engine.current.world, [
-      rectangle,
-      triangle,
-      circle,
-      cross,
       floor,
-      obstacle3,
       leftWall,
       rightWall,
     ]);
@@ -115,7 +83,7 @@ const Matter = (props) => {
   const handleDown = () => {
     console.log("on mouse down[)");
     isPressed.current = !isPressed.current;
-    explosion(engine.current)
+    // explosion(engine.current)
 
   };
 
