@@ -4,7 +4,8 @@ const initialState = {
   users: [],
   posts: [],
   singleUser: {},
-  singlePost: {}
+  singlePost: {},
+  auth: {}
 }
 
 const SET_USERS = "SET_USERS"
@@ -50,12 +51,60 @@ export const getPosts = () => {
   }
 }
 
+const TOKEN = 'token'
+
+/**
+ * ACTION TYPES
+ */
+const SET_AUTH = 'SET_AUTH'
+
+/**
+ * ACTION CREATORS
+ */
+const setAuth = auth => ({type: SET_AUTH, auth})
+
+/**
+ * THUNK CREATORS
+ */
+export const me = () => async dispatch => {
+  const token = window.localStorage.getItem(TOKEN)
+  if (token) {
+    const res = await axios.get('/auth/me', {
+      headers: {
+        authorization: token
+      }
+    })
+    return dispatch(setAuth(res.data))
+  }
+}
+
+export const authenticate = (username, password, method) => async dispatch => {
+  try {
+    const res = await axios.post(`/auth/${method}`, {username, password})
+    window.localStorage.setItem(TOKEN, res.data.token)
+    dispatch(me())
+  } catch (authError) {
+    return dispatch(setAuth({error: authError}))
+  }
+}
+
+export const logout = () => {
+  window.localStorage.removeItem(TOKEN)
+  history.push('/login')
+  return {
+    type: SET_AUTH,
+    auth: {}
+  }
+}
+
 export default function reducer (state = initialState, action) {
   switch (action.type){
     case SET_POSTS:
       return {...state, posts: action.posts}
     case SET_USERS:
       return {...state, users: action.users}
+    case SET_AUTH:
+      return{...state, auth: action.auth}
     default:
       return state
   }

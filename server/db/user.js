@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('./database')
 const bcrypt = require ('bcrypt')
+const jwt = require('jsonwebtoken')
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
@@ -25,6 +26,7 @@ User.prototype.correctPassword = function (candidatePassword) {
 }
 
 User.prototype.generateToken = function () {
+  console.log('lksjdlfkasdjflkasjdf here')
   return jwt.sign({id: this.id}, process.env.JWT)
 }
 
